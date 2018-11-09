@@ -41,6 +41,13 @@ public class CubeGameManager : MonoBehaviour
         cursorRectTransform = cursor.GetComponent<RectTransform>();
         totalPoints = 0;
         streak = 0;
+
+        if (!gameHasStarted)
+        {
+            gameHasStarted = true;
+            instructions.SetActive(!gameHasStarted);
+            scoreKeeper.enabled = gameHasStarted;
+        }
     }
 
     int streak;
@@ -83,7 +90,8 @@ public class CubeGameManager : MonoBehaviour
         Warning warning = ManomotionManager.Instance.Hand_infos[0].hand_info.warning;
 
         MoveCursorAt(gesture, trackingInfo, warning);
-        FireAt(gesture);
+        //pickup(gesture);
+        //FireAt(gesture);
 
     }
 
@@ -116,6 +124,36 @@ public class CubeGameManager : MonoBehaviour
 
     }
 
+    void pickup(GestureInfo gestureInfo)
+    {
+        if (gestureInfo.mano_gesture_trigger == ManoGestureTrigger.PICK)
+        {
+
+            fireSound.Play();
+            if (!gameHasStarted)
+            {
+                gameHasStarted = true;
+                instructions.SetActive(!gameHasStarted);
+                scoreKeeper.enabled = gameHasStarted;
+            }
+
+            Ray ray = Camera.main.ScreenPointToRay(cursorRectTransform.transform.position);
+            RaycastHit hit;
+            if (Physics.Raycast(ray.origin, ray.direction, out hit))
+            {
+                if (hit.transform.tag == interactableTag)
+                {
+                    hit.transform.GetComponent<CubeSpawn>().AwardPoints();
+                    Handheld.Vibrate();
+                    hit.transform.parent = GameObject.Find("CursorGizmo").transform;
+                }
+            }
+
+            
+        }
+        
+    }
+
 
 
     /// <summary>
@@ -138,10 +176,6 @@ public class CubeGameManager : MonoBehaviour
             }
 
 
-
-
-
-
             Ray ray = Camera.main.ScreenPointToRay(cursorRectTransform.transform.position);
             RaycastHit hit;
             if (Physics.Raycast(ray.origin, ray.direction, out hit))
@@ -150,6 +184,7 @@ public class CubeGameManager : MonoBehaviour
                 {
                     hit.transform.GetComponent<CubeSpawn>().AwardPoints();
                     Handheld.Vibrate();
+
                 }
             }
 

@@ -35,7 +35,7 @@ public class CubeSpawn : MonoBehaviour
     {
         CubeGameManager.Instance.AwardPoints(pointsWorth);
 
-        Destroy(this.gameObject);
+        //Destroy(this.gameObject);
     }
 
     public void Randomize()
@@ -67,7 +67,7 @@ public class CubeSpawn : MonoBehaviour
         float zForce = 400;
 
         rigidbody.AddForce(new Vector3(UnityEngine.Random.Range(minXForce, maxXForce), yForce, zForce), ForceMode.Force);
-        Destroy(this.gameObject, timeToDie);
+        //Destroy(this.gameObject, timeToDie);
 
     }
 }

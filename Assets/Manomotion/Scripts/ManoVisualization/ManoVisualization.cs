@@ -144,7 +144,7 @@ public class ManoVisualization : MonoBehaviour
         for (int handIndex = 0; handIndex < handsSupportedByLicence; handIndex++)
         {
             Warning warning = ManomotionManager.Instance.Hand_infos[handIndex].hand_info.warning;
-            Debug.Log("current flag" + warning);
+            //Debug.Log("current flag" + warning);
             TrackingInfo trackingInfo = ManomotionManager.Instance.Hand_infos[handIndex].hand_info.tracking_info;
             ShowBoundingBoxInfo(trackingInfo, handIndex, warning);
 

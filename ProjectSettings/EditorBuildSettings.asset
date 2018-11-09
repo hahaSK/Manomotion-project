@@ -5,16 +5,22 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
-  - enabled: 1
+  - enabled: 0
     path: Assets/Manomotion/Examples/Spooky/Spooky.unity
     guid: 958443cf6d60d4de7b2c6be811e72a9d
   - enabled: 0
     path: Assets/New Scene.unity
     guid: b3e7ed7bbc4922343ad49d8a5ae771ae
-  - enabled: 1
+  - enabled: 0
     path: Assets/Manomotion/Scenes/ManoMotion SDK Lite.unity
     guid: 2e8ecbb9ea2e340009ac8d7dd6fbd854
-  - enabled: 1
+  - enabled: 0
     path: Assets/Manomotion/Examples/Blocks/Blocks.unity
     guid: 503d81a10426d44d2a227ef6bf9f0003
+  - enabled: 0
+    path: Assets/Manomotion/Examples/Detection/Detection.unity
+    guid: 9d49c5fee5da54167bda809da4ef1922
+  - enabled: 1
+    path: Assets/PickingObjects/PickingObjects.unity
+    guid: 248a89e02cd7fdf4dba4288a47c1f77d
   m_configObjects: {}

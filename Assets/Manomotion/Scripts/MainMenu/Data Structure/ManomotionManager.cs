@@ -253,7 +253,7 @@ public class ManomotionManager : ManomotionBase
         manomotion_session.image_format = ImageFormat.RGBA_IMAGE;
         manomotion_session.orientation = SupportedOrientation.LANDSCAPE_LEFT;
         manomotion_session.add_on = AddOn.DEFAULT;
-        manomotion_session.smoothing_controller = 0.15f;
+        manomotion_session.smoothing_controller = 0.30f;
 
     }
 
